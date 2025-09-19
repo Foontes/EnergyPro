@@ -1,0 +1,41 @@
+<nav class="navbar" [class.is-open]="isOpen">
+  <div class="navbar__logo">
+    <img src="logo.png" alt="My App Logo" />
+  </div>
+
+  <ul class="navbar__links">
+    <li><a href="#">Home</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#blog">Blog</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+
+  <div class="navbar__actions">
+    <button
+      class="hamburger"
+      [class.is-open]="isOpen"
+      (click)="toggleMenu()"
+      aria-label="Abrir menu"
+      [attr.aria-expanded]="isOpen"
+      aria-controls="navbar-drawer"
+      type="button">
+      <span class="hamburger__bar"></span>
+      <span class="hamburger__bar"></span>
+      <span class="hamburger__bar"></span>
+    </button>
+  </div>
+</nav>
+
+<aside id="navbar-drawer" class="drawer" [class.open]="isOpen" role="navigation" aria-label="Menu lateral">
+  <div class="drawer__header"><span class="drawer__title">Menu</span></div>
+  <ul class="drawer__links" (click)="closeMenu()">
+    <li><a href="#">Home</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#blog">Blog</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</aside>
+
+<div class="overlay" [class.show]="isOpen" (click)="closeMenu()" aria-hidden="true"></div>
