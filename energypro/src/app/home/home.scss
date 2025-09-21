@@ -1,5 +1,89 @@
 .main {
-    width: 100vw;
-    height: calc(100vh - 64px);
-    background-color: red;
+  width: 100vw;
+  height: calc(100vh - 64px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  position: relative;
+}
+
+.main::before {
+  content: "";
+  position: absolute;
+  width: 300%;
+  height: 300%;
+  top: -100%;
+  left: -100%;
+  background: linear-gradient(135deg, #0044ccca 50%, #4a91e2b1 50%);
+  z-index: -1;
+  transform: rotate(0deg);
+  transform-origin: center;
+  animation: spinGradient 1s linear forwards;
+}
+
+@keyframes spinGradient {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(180deg);
+  }
+}
+
+.split {
+  min-height: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  justify-items: center;
+  padding: 2rem 6rem;
+  box-sizing: border-box;
+  column-gap: 20rem;
+}
+
+.panel {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: center;
+  height: 100%;
+}
+
+.panel h1 {
+  font-size: 3rem;
+  font-weight: 800;
+  margin: 0 0 .5rem;
+}
+
+.panel p {
+  color: white;
+}
+
+.panel h1 .energy {
+  color: orange;
+}
+
+.panel h1 .pro {
+  color: var(--color-primary);
+}
+
+@media (max-width: 768px) {
+  .split {
+    grid-template-columns: 1fr;
+    padding: 1.25rem;
+    column-gap: 0;
+  }
+  .main::before {
+    background: linear-gradient(135deg, #0044cc 50%, #4a90e2 50%);
+  }
+}
+
+@keyframes spinGradient {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(180deg);
+  }
 }
